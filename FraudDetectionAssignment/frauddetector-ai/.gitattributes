@@ -1,0 +1,22 @@
+# ─── Normalize Line Endings ───────────────────────
+* text=auto
+
+# ─── Mark Notebooks as Merge-Friendly & Jupyter ──
+*.ipynb merge=union
+*.ipynb linguist-language=Jupyter Notebook
+
+# ─── Ensure GitHub Stats Reflect Python Use ───────
+*.py linguist-language=Python
+
+# ─── Prevent Diffs for Model and Data Artifacts ───
+*.pkl binary
+*.joblib binary
+*.h5 binary
+*.onnx binary
+*.csv diff=none
+*.parquet diff=none
+
+# ─── Explicit Handling of JSON or Config Files ────
+*.json text
+*.yaml text
+*.yml text

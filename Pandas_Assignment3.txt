@@ -1,0 +1,10 @@
+Problem Statement:
+
+You work in XYZ Corporation as a Data Analyst. Your corporation has told you to
+analyze the customer_churn dataset with various functions.
+
+Tasks To Be Performed:
+
+1. Display the top 100 records from the original data frame.
+2. Display the last 10 records from the data frame.
+3. Display the last record from the data frame.

@@ -1,0 +1,53 @@
+# ─── Python Artifacts ─────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.log
+
+# ─── Jupyter Notebook Checkpoints ────────────────
+.ipynb_checkpoints/
+
+# ─── Virtual Environments ─────────────────────────
+.venv/
+env/
+fdenv/
+venv/
+ENV/
+*.env
+*.venv
+
+# ─── IDE Files (PyCharm, VSCode, etc.) ───────────
+.idea/
+.vscode/
+*.code-workspace
+
+# ─── OS & System Files ───────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+../../Desktop/desktop.ini
+
+# ─── Streamlit App Config ────────────────────────
+.streamlit/
+
+# ─── Project-Specific Files ──────────────────────
+# Model binaries
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.onnx
+
+# Large datasets (manual or local samples)
+data/*.csv
+data/*.xlsx
+data/*.parquet
+
+# Output artifacts
+*.zip
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.bak
+*.swp

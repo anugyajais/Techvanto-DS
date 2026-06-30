@@ -1,0 +1,32 @@
+Problem Statement:
+
+You work in XYZ Company as a Python developer. The company officials want
+you to build a Python program.
+
+Tasks To Be Performed:
+
+1. Write a function that takes start and end of a range returns a pandas series
+object containing numbers within that range.
+In case the user does not pass start or end or both they should default to 1
+and 10 respectively. E.g:
+-> range_series() -> Should Return a pandas series from 1 to 10
+range_series(5) -> Should Return a pandas series from 5 to 10
+range_series(5, 10) -> Should Return a pandas series from 5 to 15
+Create a method that takes n NumPy arrays of the same dimensions,
+sums them and returns the answer.
+
+2. Create a function that takes in two lists named keys and values as
+arguments
+Keys would be strings and contain n string values
+Values would be a list containing n lists
+The methods should return a new pandas DataFrame with keys as column
+names and values as their corresponding values, e.g:
+->create_dataframe(["One", "Two"], [["X", "Y"], ["A", "B"]]) -> should return a
+data frame
+One Two
+0 X A
+1 Y B
+
+3. Create a function that concatenates two DataFrames. Use a previously
+created function to create two DataFrames and pass them as parameters
+Make sure that the indexes are reset before returning.

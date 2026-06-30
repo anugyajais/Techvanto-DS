@@ -1,0 +1,9 @@
+Problem Statement:
+
+You work in XYZ Corporation as a Data Analyst. Your corporation has told you to
+analyze the customer_churn dataset with various functions.
+
+Tasks To Be Performed:
+
+1. Now select the rows from 20th index till 200th index (exclusive) and
+columns from 2nd index till 15th index value.

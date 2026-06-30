@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large datasets
+CreditCardFraud/data/creditcard.csv
+Datasets/
+*.xls
+*.xlsx
+
+# Model files
+*.pkl
+*.joblib
+
+# Images/GIFs if not needed
+*.gif
+
+# OS
+.DS_Store
+Thumbs.db

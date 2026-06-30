@@ -1,0 +1,120 @@
+
+# streamlit_app/app.py
+
+import streamlit as st
+import pandas as pd
+import joblib
+
+# --- Load assets ---
+MODEL_PATH = '../models/xgboost_model.pkl'
+DATA_PATH = '../data/processed_creditcard.pkl'
+
+@st.cache_data
+def load_model():
+    return joblib.load(MODEL_PATH)
+
+@st.cache_data
+def load_data():
+    return pd.read_pickle(DATA_PATH)
+
+# --- Main App ---
+def main():
+    st.title("💳 Fraud Detection Dashboard")
+    st.markdown("An interactive dashboard to explore and detect credit card fraud.")
+
+    # Load data and model
+    df = load_data()
+    model = load_model()
+
+    # Sidebar filters
+    st.sidebar.header("Filters")
+    amount_range = st.sidebar.slider("Transaction Amount", float(df['Amount'].min()), float(df['Amount'].max()), (0.0, 500.0))
+
+    filtered_df = df[(df['Amount'] >= amount_range[0]) & (df['Amount'] <= amount_range[1])]
+
+    st.subheader("Filtered Transactions")
+    st.dataframe(filtered_df.head())
+
+    # Prediction placeholder
+    st.subheader("Fraud Prediction Placeholder")
+    st.markdown("_To be integrated with model inference_")
+
+    # Visualizations (optional imports from src.visualization)
+    st.subheader("Visual Insights")
+    # Placeholder for plots or embeddings
+
+if __name__ == "__main__":
+    main()
+
+
+#---------------------------------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------------------------------
+
+
+# Exploratory Data Analysis for Credit Card Fraud Dataset
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+
+# Set global styles
+sns.set_theme(style='whitegrid')
+plt.rcParams['figure.figsize'] = (10, 6)
+
+# --- Load Dataset ---
+DATA_PATH = '../data/creditcard.csv'
+df = pd.read_csv(DATA_PATH)
+
+# --- Initial Data Overview ---
+print("Shape of the dataset:", df.shape)
+print("\nData types:\n", df.dtypes)
+print("\nFirst 5 rows:\n", df.head())
+
+# --- Check for Nulls ---
+print("\nNull values in each column:\n", df.isnull().sum())
+
+# --- Check for Duplicates ---
+duplicates = df.duplicated().sum()
+print(f"\nNumber of duplicate rows: {duplicates}")
+
+# --- Class Distribution ---
+class_counts = df['Class'].value_counts()
+print("\nClass Distribution:\n", class_counts)
+print("\nPercentage Distribution:\n", class_counts / len(df) * 100)
+
+# Bar plot of class distribution
+sns.countplot(x='Class', data=df)
+plt.title('Class Distribution: Fraud vs Non-Fraud')
+plt.show()
+
+# --- Summary Statistics ---
+print("\nSummary Statistics:\n", df.describe())
+
+# --- Correlation Matrix ---
+correlation_matrix = df.corr()
+plt.figure(figsize=(12,10))
+sns.heatmap(correlation_matrix, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Matrix Heatmap')
+plt.show()
+
+# --- Distribution of Transaction Amount ---
+sns.histplot(df['Amount'], bins=50, kde=True)
+plt.title('Transaction Amount Distribution')
+plt.show()
+
+# --- Time Feature Exploration ---
+sns.histplot(df['Time'], bins=50, kde=True)
+plt.title('Transaction Time Distribution')
+plt.show()
+
+# --- TODO: Deeper Analysis ---
+# 1. Visual comparison of Amount for fraud vs non-fraud
+# 2. Time analysis: fraud occurrences over time
+# 3. Distribution of selected principal components (V1-V28)
+# 4. Save figures to assets/plots/ (optional)
+
+# Save placeholder for next steps
+print("\nEDA scaffold ready. Continue with advanced visualizations and save outputs.")
