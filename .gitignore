@@ -9,8 +9,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Large datasets
-CreditCardFraud/data/creditcard.csv
-Datasets/
+
 *.xls
 *.xlsx
 
